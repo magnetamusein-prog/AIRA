@@ -65,9 +65,6 @@
 .rag-particles { position: absolute; inset: 0; pointer-events: none; }
 .rag-particle { position: absolute; width: 3px; height: 3px; background: var(--primary); border-radius: 50%; opacity: 0; }
 
-  .p-#{$i} { top: random(100) + %; left: random(100) + %; animation: floatParticle 3s infinite random(2000) + ms; }
-}
-
 @keyframes pulseNode { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.5); opacity: 1; } }
 @keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 0.5; } 90% { opacity: 0.5; } 100% { top: 100%; opacity: 0; } }
 @keyframes pulseCore { 0% { transform: scale(0.9); } 100% { transform: scale(1.1); } }

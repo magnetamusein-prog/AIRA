@@ -13,7 +13,6 @@ const AnimatedCounter = ({ value, suffix, inView }) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!inView) return;
-    let start = 0;
     const end = value;
     const duration = 2000;
     const isDecimal = value % 1 !== 0;

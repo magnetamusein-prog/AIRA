@@ -33,7 +33,7 @@ const CustomCursor = () => {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, []);
+  }, [cursorX, cursorY]);
 
   useEffect(() => {
     const addListeners = () => {
