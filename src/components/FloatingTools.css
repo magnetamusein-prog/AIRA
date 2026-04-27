@@ -1,0 +1,76 @@
+.tools-section {
+  position: relative; padding: 120px 20px; z-index: 1; overflow: hidden;
+}
+.tools-container { max-width: 1400px; margin: 0 auto; }
+.tools-header { text-align: center; margin-bottom: 60px; }
+
+.tools-orbit-wrapper { position: relative; padding: 20px 0; }
+.tools-center-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(82,140,94,0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.tools-marquee-row {
+  overflow: hidden; padding: 12px 0;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.tools-marquee-track {
+  display: flex; gap: 16px; width: max-content;
+}
+.tools-marquee-track.left {
+  animation: marqueeLeft 35s linear infinite;
+}
+.tools-marquee-track.right {
+  animation: marqueeRight 40s linear infinite;
+}
+
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.tools-marquee-track:hover { animation-play-state: paused; }
+
+.tool-card {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 20px; border-radius: 14px; flex-shrink: 0;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  min-width: 180px;
+}
+.tool-card:hover {
+  border-color: rgba(82,140,94,0.25);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.tool-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  flex-shrink: 0;
+}
+.tool-info { display: flex; flex-direction: column; }
+.tool-name {
+  font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.85);
+}
+.tool-category {
+  font-size: 0.7rem; color: rgba(255,255,255,0.35);
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .tools-section { padding: 80px 10px; }
+  .tool-card { padding: 10px 14px; min-width: 150px; }
+  .tool-icon { width: 32px; height: 32px; }
+}

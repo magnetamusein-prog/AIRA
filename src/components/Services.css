@@ -1,0 +1,116 @@
+.services-section {
+  position: relative; padding: 140px 20px; z-index: 1;
+}
+.services-container { max-width: 1200px; margin: 0 auto; }
+
+.services-header { text-align: center; margin-bottom: 100px; }
+.section-label { font-size: 0.8rem; color: var(--primary); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Inter', monospace; }
+.section-title { font-size: 3rem; color: #fff; margin: 16px 0; }
+.section-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.6); font-weight: 300; }
+
+.services-list { display: flex; flex-direction: column; gap: 140px; }
+
+.service-row {
+  display: flex; align-items: center; gap: 80px;
+}
+.service-row.reverse { flex-direction: row-reverse; }
+
+/* Visual Container (replaces images) */
+.service-visual-container {
+  flex: 1; position: relative; border-radius: 4px;
+}
+.service-visual-glow {
+  position: absolute; inset: -20px; border-radius: 50%;
+  background: var(--tertiary); filter: blur(60px); opacity: 0.1;
+  z-index: 0; transition: opacity 0.3s;
+}
+.service-visual-container:hover .service-visual-glow { opacity: 0.3; }
+
+.service-visual-wrapper {
+  position: relative; width: 100%; aspect-ratio: 4/3;
+  border-radius: 4px; overflow: hidden; z-index: 1;
+  border: 1px solid rgba(82, 140, 94, 0.2);
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Motion Graphics CSS */
+.mg-container { width: 100%; height: 100%; position: relative; overflow: hidden; }
+
+/* Automation MG */
+.automation-mg { background: radial-gradient(circle at center, rgba(82,140,94,0.1), transparent); }
+.mg-node { position: absolute; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 20px var(--primary); }
+.node-1 { top: 30%; left: 30%; animation: pulseNode 2s infinite; }
+.node-2 { top: 60%; left: 70%; animation: pulseNode 2s infinite 0.5s; }
+.node-3 { top: 70%; left: 40%; animation: pulseNode 2s infinite 1s; }
+.mg-line { position: absolute; background: linear-gradient(90deg, transparent, var(--primary), transparent); height: 1px; }
+.line-1 { top: 45%; left: 30%; width: 40%; transform: rotate(25deg); opacity: 0.5; }
+.line-2 { top: 65%; left: 40%; width: 30%; transform: rotate(-10deg); opacity: 0.5; }
+.mg-scanline { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary); opacity: 0.5; box-shadow: 0 0 10px var(--primary); animation: scan 3s linear infinite; }
+
+/* Agents MG */
+.agents-mg { display: flex; align-items: center; justify-content: center; perspective: 1000px; }
+.agent-core { width: 40px; height: 40px; background: #fff; border-radius: 50%; box-shadow: 0 0 30px #fff, 0 0 60px var(--primary); animation: pulseCore 2s infinite alternate; }
+.agent-orbit { position: absolute; border: 1px solid rgba(82,140,94,0.3); border-radius: 50%; border-style: dashed; }
+.orbit-1 { width: 120px; height: 120px; animation: spinOrbit 10s linear infinite; }
+.orbit-2 { width: 220px; height: 220px; animation: spinOrbit 15s linear infinite reverse; }
+.orbit-3 { width: 320px; height: 320px; animation: spinOrbit 20s linear infinite; }
+.agent-satellite { position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); }
+
+/* RAG MG */
+.rag-mg { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+.rag-doc { width: 80px; height: 10px; background: rgba(255,255,255,0.1); border-radius: 2px; position: relative; overflow: hidden; }
+.rag-doc::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, var(--primary), transparent); animation: sweep 2s infinite; }
+.doc-1::after { animation-delay: 0s; } .doc-2::after { animation-delay: 0.5s; } .doc-3::after { animation-delay: 1s; }
+.rag-particles { position: absolute; inset: 0; pointer-events: none; }
+.rag-particle { position: absolute; width: 3px; height: 3px; background: var(--primary); border-radius: 50%; opacity: 0; }
+
+@keyframes pulseNode { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.5); opacity: 1; } }
+@keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 0.5; } 90% { opacity: 0.5; } 100% { top: 100%; opacity: 0; } }
+@keyframes pulseCore { 0% { transform: scale(0.9); } 100% { transform: scale(1.1); } }
+@keyframes spinOrbit { 100% { transform: rotate(360deg); } }
+@keyframes sweep { 100% { left: 200%; } }
+@keyframes floatParticle { 0% { transform: translateY(0); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-50px); opacity: 0; } }
+
+/* Content */
+.service-content { flex: 1; }
+
+.service-num { font-size: 1rem; color: var(--primary); font-family: 'Inter', monospace; margin-bottom: 8px; }
+.service-title { font-size: 2.5rem; color: #fff; margin-bottom: 8px; font-weight: 400; }
+.service-subtitle { font-size: 0.85rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; font-family: 'Inter', monospace; }
+.service-desc { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
+
+.service-features-list { list-style: none; margin-bottom: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.service-features-list li { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: rgba(255,255,255,0.8); font-weight: 300; }
+.feature-icon { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
+
+.service-btn { background: transparent; color: #fff; border: 1px solid var(--tertiary); padding: 14px 28px; border-radius: 4px; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
+.service-btn:hover { background: rgba(82, 140, 94, 0.1); border-color: var(--primary); }
+.service-btn-arrow { display: flex; align-items: center; justify-content: center; transition: transform 0.3s; color: var(--primary); }
+.service-btn:hover .service-btn-arrow { transform: translateX(3px) translateY(-3px); }
+
+@media (max-width: 1024px) {
+  .service-row, .service-row.reverse { flex-direction: column; gap: 40px; }
+  .service-visual-container { width: 100%; }
+}
+
+.p-0 { top: 10%; left: 20%; animation: floatParticle 3s infinite 0.1s; }
+.p-1 { top: 30%; left: 80%; animation: floatParticle 3s infinite 0.5s; }
+.p-2 { top: 60%; left: 40%; animation: floatParticle 3s infinite 1.2s; }
+.p-3 { top: 80%; left: 10%; animation: floatParticle 3s infinite 0.8s; }
+.p-4 { top: 50%; left: 70%; animation: floatParticle 3s infinite 1.5s; }
+.p-5 { top: 20%; left: 50%; animation: floatParticle 3s infinite 0.3s; }
+.p-6 { top: 90%; left: 60%; animation: floatParticle 3s infinite 1.9s; }
+.p-7 { top: 40%; left: 90%; animation: floatParticle 3s infinite 0.7s; }
+.p-8 { top: 70%; left: 30%; animation: floatParticle 3s infinite 1.1s; }
+.p-9 { top: 15%; left: 75%; animation: floatParticle 3s infinite 0.4s; }
+.p-10 { top: 85%; left: 85%; animation: floatParticle 3s infinite 1.6s; }
+.p-11 { top: 45%; left: 15%; animation: floatParticle 3s infinite 0.9s; }
+.p-12 { top: 25%; left: 35%; animation: floatParticle 3s infinite 1.3s; }
+.p-13 { top: 65%; left: 55%; animation: floatParticle 3s infinite 0.2s; }
+.p-14 { top: 5%; left: 95%; animation: floatParticle 3s infinite 1.8s; }
+.p-15 { top: 95%; left: 25%; animation: floatParticle 3s infinite 0.6s; }
+.p-16 { top: 55%; left: 5%; animation: floatParticle 3s infinite 1.4s; }
+.p-17 { top: 35%; left: 65%; animation: floatParticle 3s infinite 1.0s; }
+.p-18 { top: 75%; left: 45%; animation: floatParticle 3s infinite 1.7s; }
+.p-19 { top: 50%; left: 50%; animation: floatParticle 3s infinite 0.5s; }

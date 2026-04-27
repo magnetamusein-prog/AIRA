@@ -1,0 +1,71 @@
+/* ============================
+   LOADING SCREEN
+   ============================ */
+.loading-screen {
+  position: fixed; inset: 0; z-index: 20000;
+  background: #050505;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 32px;
+}
+.loading-logo-wrapper {
+  position: relative; width: 100px; height: 100px;
+  display: flex; align-items: center; justify-content: center;
+}
+.loading-logo { width: 60px; height: 60px; position: relative; z-index: 2; }
+.loading-ring {
+  position: absolute; inset: -5px;
+  border: 1.5px solid rgba(82,140,94,0.1); border-radius: 50%;
+  border-top-color: rgba(143,209,157,0.5);
+}
+.loading-text { display: flex; align-items: baseline; gap: 10px; }
+.loading-brand {
+  font-family: 'Space Grotesk', sans-serif; font-size: 2rem;
+  font-weight: 700; color: #fff; letter-spacing: 0.15em;
+}
+.loading-ai {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem;
+  font-weight: 300; color: var(--primary); letter-spacing: 0.15em;
+}
+.loading-bar-wrapper {
+  width: 200px; height: 2px; background: rgba(255,255,255,0.05);
+  border-radius: 1px; overflow: hidden;
+}
+.loading-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--light-green));
+  border-radius: 1px;
+}
+
+/* ============================
+   GLOBAL SECTION SPACING
+   ============================ */
+.section-label {
+  display: inline-block; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; color: var(--primary); letter-spacing: 0.2em;
+  background: rgba(82,140,94,0.08); padding: 6px 16px;
+  border-radius: 20px; border: 1px solid rgba(82,140,94,0.15); margin-bottom: 20px;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #fff; margin-bottom: 16px; line-height: 1.2;
+}
+.section-subtitle {
+  font-size: 1.05rem; color: rgba(255,255,255,0.42);
+  max-width: 580px; margin: 0 auto; line-height: 1.7;
+}
+
+/* ============================
+   SMOOTH SCROLL
+   ============================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================
+   SELECTION STYLES
+   ============================ */
+::selection {
+  background: rgba(82,140,94,0.3);
+  color: #fff;
+}

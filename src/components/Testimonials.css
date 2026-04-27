@@ -1,0 +1,63 @@
+.testimonials-section {
+  position: relative; padding: 120px 20px; z-index: 1;
+}
+.testimonials-container { max-width: 1200px; margin: 0 auto; }
+.test-header { text-align: center; margin-bottom: 80px; }
+
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+  perspective: 1000px;
+}
+
+.testimonial-card {
+  position: relative; background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 40px 30px; border-radius: 20px;
+  transform-style: preserve-3d; cursor: none;
+  transition: border-color 0.3s;
+}
+.testimonial-card:hover { border-color: rgba(255,255,255,0.15); }
+
+.testimonial-glow {
+  position: absolute; inset: 0; border-radius: 20px;
+  background: radial-gradient(circle at 50% -20%, var(--card-color), transparent 60%);
+  opacity: 0.05; pointer-events: none; transition: opacity 0.3s;
+}
+.testimonial-card:hover .testimonial-glow { opacity: 0.15; }
+
+.quote-mark {
+  font-family: 'Space Grotesk', sans-serif; font-size: 6rem;
+  color: var(--card-color); opacity: 0.2; line-height: 0;
+  margin-bottom: 20px;
+}
+
+.testimonial-quote {
+  font-size: 1.05rem; color: rgba(255,255,255,0.8); line-height: 1.7;
+  margin-bottom: 40px; font-weight: 300; min-height: 120px;
+}
+
+.testimonial-author-area {
+  display: flex; align-items: center; gap: 16px;
+}
+
+.author-avatar {
+  width: 45px; height: 45px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  color: #000; font-size: 1.2rem;
+  box-shadow: 0 0 15px var(--card-color);
+}
+
+.author-name {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem;
+  color: #fff; margin-bottom: 4px;
+}
+.author-role {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  color: rgba(255,255,255,0.4); text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+  .testimonial-quote { min-height: auto; }
+}
